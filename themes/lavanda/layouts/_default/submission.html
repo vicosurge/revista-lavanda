@@ -105,7 +105,7 @@ function validateFile(input) {
     errorDiv.style.color = '#28a745';
 }
 
-document.getElementById('submission-form').addEventListener('submit', function(e) {
+document.getElementById('submission-form').addEventListener('submit', async function(e) {
     e.preventDefault();
     
     const form = e.target;
@@ -128,40 +128,50 @@ document.getElementById('submission-form').addEventListener('submit', function(e
     submitBtn.disabled = true;
     statusDiv.style.display = 'none';
     
-    // Prepare form data
-    const formData = new FormData(form);
-    
-    // Send to Make.com webhook
-    fetch(form.action, {
-        method: 'POST',
-        body: formData,
-    })
-    .then(response => {
+    try {
+        // Prepare form data
+        const formData = new FormData(form);
+        
+        // Send to Vercel function
+        const response = await fetch(form.action, {
+            method: 'POST',
+            body: formData,
+            mode: 'cors'
+        });
+        
+        const result = await response.json();
+        
         if (response.ok) {
             // Success
-            statusDiv.innerHTML = '✅ ¡Gracias! Tu trabajo ha sido enviado correctamente. Te contactaremos pronto.';
+            statusDiv.innerHTML = `✅ ¡Gracias! Tu trabajo ha sido enviado correctamente. Te contactaremos pronto.<br><small>ID de registro: ${result.recordId}</small>`;
             statusDiv.style.backgroundColor = '#d4edda';
             statusDiv.style.color = '#155724';
             statusDiv.style.border = '1px solid #c3e6cb';
             statusDiv.style.display = 'block';
             form.reset();
+            
+            // Clear file validation message
+            const fileError = document.getElementById('file-error');
+            if (fileError) {
+                fileError.style.display = 'none';
+            }
         } else {
-            throw new Error('Error en el envío');
+            throw new Error(result.error || 'Error en el envío');
         }
-    })
-    .catch(error => {
+        
+    } catch (error) {
+        console.error('Error de envío:', error);
         // Error
         statusDiv.innerHTML = '❌ Hubo un error al enviar tu trabajo. Por favor, inténtalo de nuevo o envíanos un email directamente.';
         statusDiv.style.backgroundColor = '#f8d7da';
         statusDiv.style.color = '#721c24';
         statusDiv.style.border = '1px solid #f5c6cb';
         statusDiv.style.display = 'block';
-    })
-    .finally(() => {
+    } finally {
         // Reset button
         submitBtn.textContent = 'Enviar Trabajo';
         submitBtn.disabled = false;
-    });
+    }
 });
 </script>
 {{ end }}
