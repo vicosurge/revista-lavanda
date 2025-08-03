@@ -1,0 +1,33 @@
+{{ define "main" }}
+<div class="taxonomy-page">
+    <div class="container">
+        <header class="taxonomy-header">
+            <h1 class="taxonomy-title">{{ .Title }}</h1>
+            <p class="taxonomy-description">
+                {{ if eq .Type "categories" }}
+                Todas las categorías
+                {{ else if eq .Type "tags" }}
+                Todas las etiquetas  
+                {{ else if eq .Type "authors" }}
+                Todos los autores
+                {{ else }}
+                {{ .Title }}
+                {{ end }}
+            </p>
+        </header>
+        
+        <div class="taxonomy-list">
+            {{ range .Pages }}
+            <div class="taxonomy-item">
+                <h3 class="taxonomy-item-title">
+                    <a href="{{ .Permalink }}">{{ .Title }}</a>
+                </h3>
+                <span class="taxonomy-count">
+                    {{ len .Pages }} {{ if eq (len .Pages) 1 }}artículo{{ else }}artículos{{ end }}
+                </span>
+            </div>
+            {{ end }}
+        </div>
+    </div>
+</div>
+{{ end }}

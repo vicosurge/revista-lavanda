@@ -1,0 +1,44 @@
+{{ define "main" }}
+<article class="single-content">
+    <div class="container">
+        <header class="content-header">
+            <h1 class="content-title">{{ .Title }}</h1>
+            <div class="content-meta">
+                <div class="meta-item">
+                    <span class="meta-label">Categoría:</span>
+                    {{ range .Params.categories }}
+                    <a href="{{ printf "/categories/%s" . | relURL }}" class="meta-value">{{ . }}</a>
+                    {{ end }}
+                </div>
+                {{ if .Params.authors }}
+                <div class="meta-item">
+                    <span class="meta-label">Autor:</span>
+                    {{ range .Params.authors }}
+                    <a href="{{ printf "/autores/%s" (urlize .) | relURL }}" class="meta-value">{{ . }}</a>
+                    {{ end }}
+                </div>
+                {{ end }}
+                <div class="meta-item">
+                    <span class="meta-label">Fecha:</span>
+                    <time class="meta-value">{{ .Date.Format "2 de January de 2006" }}</time>
+                </div>
+            </div>
+        </header>
+        
+        <div class="content-body">
+            {{ .Content }}
+        </div>
+        
+        {{ if .Params.tags }}
+        <footer class="content-footer">
+            <div class="content-tags">
+                <span class="tags-label">Etiquetas:</span>
+                {{ range .Params.tags }}
+                <a href="{{ printf "/tags/%s" (urlize .) | relURL }}" class="tag">{{ . }}</a>
+                {{ end }}
+            </div>
+        </footer>
+        {{ end }}
+    </div>
+</article>
+{{ end }}

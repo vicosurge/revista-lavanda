@@ -1,0 +1,24 @@
+{{ define "main" }}
+<div class="list-page">
+    <div class="container">
+        <header class="list-header">
+            <h1 class="list-title">{{ .Title }}</h1>
+            {{ if .Description }}
+            <p class="list-description">{{ .Description }}</p>
+            {{ end }}
+        </header>
+        
+        <div class="content-grid">
+            {{ range .Pages }}
+                {{ partial "content-card.html" . }}
+            {{ end }}
+        </div>
+        
+        {{ if eq (len .Pages) 0 }}
+        <div class="no-content">
+            <p>No hay contenido disponible en esta sección.</p>
+        </div>
+        {{ end }}
+    </div>
+</div>
+{{ end }}

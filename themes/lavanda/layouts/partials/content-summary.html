@@ -1,0 +1,16 @@
+<article class="content-summary">
+    <h4 class="summary-title">
+        <a href="{{ .Permalink }}">{{ .Title }}</a>
+    </h4>
+    <div class="summary-meta">
+        {{ if .Params.authors }}
+        <span class="summary-author">{{ range .Params.authors }}{{ . }}{{ end }}</span>
+        {{ end }}
+        <time class="summary-date">{{ .Date.Format "2 Jan" }}</time>
+    </div>
+    {{ if .Params.summary }}
+    <p class="summary-excerpt">{{ .Params.summary }}</p>
+    {{ else }}
+    <p class="summary-excerpt">{{ .Summary | truncate 100 }}</p>
+    {{ end }}
+</article>

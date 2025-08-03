@@ -1,0 +1,25 @@
+<header class="site-header">
+    <div class="container">
+        <div class="header-content">
+            <div class="site-branding">
+                {{ if .Site.Params.logo }}
+                    <img src="{{ .Site.Params.logo | relURL }}" alt="{{ .Site.Title }}" class="site-logo">
+                {{ end }}
+                <h1 class="site-title">
+                    <a href="{{ "/" | relURL }}">{{ .Site.Title }}</a>
+                </h1>
+                <p class="site-description">{{ .Site.Params.description }}</p>
+            </div>
+            
+            <nav class="main-navigation">
+                <ul class="nav-menu">
+                    {{ range .Site.Menus.main }}
+                    <li class="nav-item">
+                        <a href="{{ .URL | relURL }}" class="nav-link">{{ .Name }}</a>
+                    </li>
+                    {{ end }}
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>

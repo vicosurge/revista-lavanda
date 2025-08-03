@@ -1,0 +1,12 @@
+name = "Lavanda"
+license = "MIT"
+licenselink = "https://github.com/yourname/lavanda/blob/master/LICENSE"
+description = "A literary magazine theme with lavender aesthetics"
+homepage = "https://github.com/yourname/lavanda"
+tags = ["blog", "magazine", "literary", "clean", "responsive"]
+features = ["responsive", "multilingual"]
+min_version = "0.88.0"
+
+[author]
+  name = "Vicente Manuel Muñoz Milchorena"
+  homepage = "https://revistalavanda.com"

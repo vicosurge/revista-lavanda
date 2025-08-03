@@ -1,0 +1,9 @@
+<footer class="site-footer">
+    <div class="container">
+        <p>&copy; {{ now.Format "2006" }} {{ .Site.Title }}. Revista literaria independiente.</p>
+        <p>Contacto: <a href="mailto:{{ .Site.Params.email }}">{{ .Site.Params.email }}</a></p>
+        {{ if .Site.Params.submissions_open }}
+        <p><a href="{{ "/enviar/" | relURL }}">Envíanos tu trabajo</a></p>
+        {{ end }}
+    </div>
+</footer>

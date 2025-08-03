@@ -1,0 +1,70 @@
+baseURL = "https://revistalavanda.com"
+languageCode = "es"
+title = "Revista Lavanda"
+theme = "lavanda"
+
+# Site parameters
+[params]
+  description = "Revista literaria en español para escritores emergentes y establecidos"
+  author = "Revista Lavanda"
+  logo = "/images/logo.png"
+  favicon = "/images/favicon.ico"
+  
+  # Lavender color scheme
+  primary_color = "#8A7CA8"
+  secondary_color = "#D8BFD8"
+  accent_color = "#9370DB"
+  text_color = "#2C2C2C"
+  
+  # Social media
+  email = "contacto@revistalavanda.com"
+  twitter = ""
+  facebook = ""
+  instagram = ""
+  
+  # Submission settings
+  submissions_open = true
+  submission_email = "envios@revistalavanda.com"
+
+# Menu configuration
+[[menu.main]]
+  name = "Inicio"
+  url = "/"
+  weight = 1
+
+[[menu.main]]
+  name = "Cuentos"
+  url = "/cuentos/"
+  weight = 2
+
+[[menu.main]]
+  name = "Poesía"
+  url = "/poesia/"
+  weight = 3
+
+[[menu.main]]
+  name = "Ensayos"
+  url = "/ensayos/"
+  weight = 4
+
+[[menu.main]]
+  name = "Autores"
+  url = "/autores/"
+  weight = 5
+
+[[menu.main]]
+  name = "Enviar Texto"
+  url = "/enviar/"
+  weight = 6
+
+# Taxonomies
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+  author = "authors"
+
+# Markup configuration
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true

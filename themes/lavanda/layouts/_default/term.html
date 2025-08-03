@@ -1,0 +1,25 @@
+{{ define "main" }}
+<div class="term-page">
+    <div class="container">
+        <header class="term-header">
+            <h1 class="term-title">{{ .Title }}</h1>
+            <p class="term-description">
+                {{ len .Pages }} {{ if eq (len .Pages) 1 }}artículo{{ else }}artículos{{ end }}
+                {{ if eq .Type "categories" }}
+                en la categoría "{{ .Title }}"
+                {{ else if eq .Type "tags" }}
+                con la etiqueta "{{ .Title }}"
+                {{ else if eq .Type "authors" }}
+                por {{ .Title }}
+                {{ end }}
+            </p>
+        </header>
+        
+        <div class="content-grid">
+            {{ range .Pages }}
+                {{ partial "content-card.html" . }}
+            {{ end }}
+        </div>
+    </div>
+</div>
+{{ end }}
