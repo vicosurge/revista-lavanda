@@ -541,3 +541,44 @@ body {
         gap: 0.25rem;
     }
 }
+
+/* File Upload Styles */
+.form-file {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px dashed var(--border);
+    border-radius: 6px;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    background-color: var(--light);
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.form-file:hover {
+    border-color: var(--primary);
+    background-color: white;
+}
+
+.form-file:focus {
+    outline: none;
+    border-color: var(--primary);
+    background-color: white;
+}
+
+.file-info {
+    margin-top: 0.5rem;
+}
+
+.file-info small {
+    color: var(--gray);
+    font-family: 'Inter', sans-serif;
+}
+
+.file-error {
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-family: 'Inter', sans-serif;
+}

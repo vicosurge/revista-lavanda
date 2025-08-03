@@ -11,8 +11,8 @@
             </div>
         </article>
         
-        <!-- Make.com Webhook Form -->
-        <form action="https://hook.us2.make.com/po5i6hhdgv8nii0fhi8v2dgwwo5j4lje" method="POST" class="submission-form" id="submission-form">
+        <!-- Make.com Webhook Form with File Upload -->
+        <form action="YOUR_MAKE_WEBHOOK_URL_HERE" method="POST" enctype="multipart/form-data" class="submission-form" id="submission-form">
             <div class="form-group">
                 <label for="nombre" class="form-label">Nombre completo *</label>
                 <input type="text" id="nombre" name="nombre" class="form-input" required>
@@ -43,14 +43,21 @@
                 <textarea id="bio" name="bio" class="form-textarea" rows="3" maxlength="500"></textarea>
             </div>
             
+            <!-- File Upload Section -->
             <div class="form-group">
-                <label for="trabajo" class="form-label">Tu trabajo *</label>
-                <textarea id="trabajo" name="trabajo" class="form-textarea" required rows="15" placeholder="Pega aquí el texto completo de tu trabajo..."></textarea>
+                <label for="archivo" class="form-label">Archivo del trabajo *</label>
+                <input type="file" id="archivo" name="archivo" class="form-file" required 
+                       accept=".docx,.doc,.odt,.rtf,.txt"
+                       onchange="validateFile(this)">
+                <div class="file-info">
+                    <small>Formatos permitidos: DOCX, DOC, ODT, RTF, TXT (máximo 10MB)</small>
+                </div>
+                <div id="file-error" class="file-error" style="display: none;"></div>
             </div>
             
             <div class="form-group">
                 <label for="notas" class="form-label">Notas adicionales</label>
-                <textarea id="notas" name="notas" class="form-textarea" rows="3"></textarea>
+                <textarea id="notas" name="notas" class="form-textarea" rows="3" placeholder="Cualquier información adicional sobre tu trabajo..."></textarea>
             </div>
             
             <button type="submit" class="form-submit" id="submit-btn">Enviar Trabajo</button>
@@ -61,15 +68,64 @@
 </div>
 
 <script>
+// File validation
+function validateFile(input) {
+    const file = input.files[0];
+    const errorDiv = document.getElementById('file-error');
+    const submitBtn = document.getElementById('submit-btn');
+    
+    if (!file) return;
+    
+    // Check file size (10MB = 10 * 1024 * 1024 bytes)
+    const maxSize = 10 * 1024 * 1024;
+    if (file.size > maxSize) {
+        errorDiv.textContent = 'El archivo es demasiado grande. Máximo 10MB permitido.';
+        errorDiv.style.display = 'block';
+        errorDiv.style.color = '#dc3545';
+        input.value = '';
+        return;
+    }
+    
+    // Check file type
+    const allowedTypes = ['.docx', '.doc', '.odt', '.rtf', '.txt'];
+    const fileName = file.name.toLowerCase();
+    const isValidType = allowedTypes.some(type => fileName.endsWith(type));
+    
+    if (!isValidType) {
+        errorDiv.textContent = 'Formato de archivo no permitido. Solo se aceptan: DOCX, DOC, ODT, RTF, TXT';
+        errorDiv.style.display = 'block';
+        errorDiv.style.color = '#dc3545';
+        input.value = '';
+        return;
+    }
+    
+    // File is valid
+    errorDiv.style.display = 'none';
+    errorDiv.textContent = `✓ Archivo válido: ${file.name} (${(file.size / 1024 / 1024).toFixed(2)} MB)`;
+    errorDiv.style.display = 'block';
+    errorDiv.style.color = '#28a745';
+}
+
 document.getElementById('submission-form').addEventListener('submit', function(e) {
     e.preventDefault();
     
     const form = e.target;
     const submitBtn = document.getElementById('submit-btn');
     const statusDiv = document.getElementById('form-status');
+    const fileInput = document.getElementById('archivo');
+    
+    // Validate file is selected
+    if (!fileInput.files[0]) {
+        statusDiv.innerHTML = '❌ Por favor selecciona un archivo antes de enviar.';
+        statusDiv.style.backgroundColor = '#f8d7da';
+        statusDiv.style.color = '#721c24';
+        statusDiv.style.border = '1px solid #f5c6cb';
+        statusDiv.style.display = 'block';
+        return;
+    }
     
     // Show loading state
-    submitBtn.textContent = 'Enviando...';
+    submitBtn.textContent = 'Enviando archivo...';
     submitBtn.disabled = true;
     statusDiv.style.display = 'none';
     

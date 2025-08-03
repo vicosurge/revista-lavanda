@@ -8,6 +8,13 @@ layout: "submission"
 
 Estamos siempre buscando nuevas voces y perspectivas. Si tienes un cuento, poema o ensayo que te gustaría compartir con nuestra comunidad, te invitamos a enviárnoslo.
 
+### Formatos de Archivo Aceptados
+- **Microsoft Word**: .docx, .doc
+- **OpenDocument**: .odt
+- **Rich Text**: .rtf  
+- **Texto plano**: .txt
+- **Tamaño máximo**: 10MB
+
 ### Requisitos de Envío
 
 - **Cuentos**: Máximo 3,000 palabras
