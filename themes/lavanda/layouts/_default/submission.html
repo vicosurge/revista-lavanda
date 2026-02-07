@@ -143,7 +143,7 @@ document.getElementById('submission-form').addEventListener('submit', async func
         
         if (response.ok) {
             // Success
-            statusDiv.innerHTML = `✅ ¡Gracias! Tu trabajo ha sido enviado correctamente. Te contactaremos pronto.<br><small>ID de registro: ${result.recordId}</small>`;
+            statusDiv.innerHTML = `✅ ¡Gracias! Tu trabajo ha sido enviado correctamente. Te contactaremos pronto.<br><small>ID de registro: ${result.submissionId}</small>`;
             statusDiv.style.backgroundColor = '#d4edda';
             statusDiv.style.color = '#155724';
             statusDiv.style.border = '1px solid #c3e6cb';
