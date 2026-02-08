@@ -26,9 +26,8 @@
                 <label for="tipo" class="form-label">Tipo de trabajo *</label>
                 <select id="tipo" name="tipo" class="form-select" required>
                     <option value="">Selecciona una opción</option>
-                    <option value="cuento">Cuento</option>
-                    <option value="poesia">Poesía</option>
                     <option value="ensayo">Ensayo</option>
+                    <option value="ilustracion">Ilustración</option>
                 </select>
             </div>
             
@@ -45,11 +44,11 @@
             <!-- File Upload Section -->
             <div class="form-group">
                 <label for="archivo" class="form-label">Archivo del trabajo *</label>
-                <input type="file" id="archivo" name="archivo" class="form-file" required 
-                       accept=".docx,.doc,.odt,.rtf,.txt"
+                <input type="file" id="archivo" name="archivo" class="form-file" required
+                       accept=".docx,.doc,.odt,.rtf,.txt,.png,.jpg,.jpeg,.tiff,.pdf"
                        onchange="validateFile(this)">
                 <div class="file-info">
-                    <small>Formatos permitidos: DOCX, DOC, ODT, RTF, TXT (máximo 10MB)</small>
+                    <small>Formatos permitidos: DOCX, DOC, ODT, RTF, TXT, PNG, JPG, TIFF, PDF (máximo 10MB)</small>
                 </div>
                 <div id="file-error" class="file-error" style="display: none;"></div>
             </div>
@@ -86,7 +85,7 @@ function validateFile(input) {
     }
     
     // Check file type
-    const allowedTypes = ['.docx', '.doc', '.odt', '.rtf', '.txt'];
+    const allowedTypes = ['.docx', '.doc', '.odt', '.rtf', '.txt', '.png', '.jpg', '.jpeg', '.tiff', '.pdf'];
     const fileName = file.name.toLowerCase();
     const isValidType = allowedTypes.some(type => fileName.endsWith(type));
     

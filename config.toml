@@ -5,7 +5,7 @@ theme = "lavanda"
 
 # Site parameters
 [params]
-  description = "Revista literaria en español para escritores emergentes y establecidos"
+  description = "Pensamiento, arte y vida cotidiana"
   author = "Revista Lavanda"
   logo = "/images/logo.png"
   favicon = "/images/favicon.ico"
@@ -33,29 +33,24 @@ theme = "lavanda"
   weight = 1
 
 [[menu.main]]
-  name = "Cuentos"
-  url = "/cuentos/"
+  name = "Ensayos"
+  url = "/ensayos/"
   weight = 2
 
 [[menu.main]]
-  name = "Poesía"
-  url = "/poesia/"
+  name = "Ilustraciones"
+  url = "/ilustraciones/"
   weight = 3
-
-[[menu.main]]
-  name = "Ensayos"
-  url = "/ensayos/"
-  weight = 4
 
 [[menu.main]]
   name = "Autores"
   url = "/autores/"
-  weight = 5
+  weight = 4
 
 [[menu.main]]
   name = "Enviar Texto"
   url = "/enviar/"
-  weight = 6
+  weight = 5
 
 # Taxonomies
 [taxonomies]

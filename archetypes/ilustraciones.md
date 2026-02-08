@@ -2,10 +2,9 @@
 title: "{{ replace .Name "-" " " | title }}"
 date: {{ .Date }}
 draft: true
-categories: ["poesia"]
+categories: ["ilustraciones"]
 tags: []
 authors: [""]
 summary: ""
+featured_image: ""
 ---
-
-Aquí va el poema...

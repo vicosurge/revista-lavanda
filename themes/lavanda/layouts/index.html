@@ -15,22 +15,15 @@
         <section class="recent-content">
             <div class="content-columns">
                 <div class="content-column">
-                    <h3>Cuentos Recientes</h3>
-                    {{ range first 3 (where .Site.RegularPages "Section" "cuentos") }}
-                        {{ partial "content-summary.html" . }}
-                    {{ end }}
-                </div>
-                
-                <div class="content-column">
-                    <h3>Poesía Reciente</h3>
-                    {{ range first 3 (where .Site.RegularPages "Section" "poesia") }}
-                        {{ partial "content-summary.html" . }}
-                    {{ end }}
-                </div>
-                
-                <div class="content-column">
                     <h3>Ensayos Recientes</h3>
                     {{ range first 3 (where .Site.RegularPages "Section" "ensayos") }}
+                        {{ partial "content-summary.html" . }}
+                    {{ end }}
+                </div>
+
+                <div class="content-column">
+                    <h3>Ilustraciones Recientes</h3>
+                    {{ range first 3 (where .Site.RegularPages "Section" "ilustraciones") }}
                         {{ partial "content-summary.html" . }}
                     {{ end }}
                 </div>

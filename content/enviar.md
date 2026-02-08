@@ -6,21 +6,21 @@ layout: "submission"
 
 ## Envía tu trabajo a Revista Lavanda
 
-Estamos siempre buscando nuevas voces y perspectivas. Si tienes un cuento, poema o ensayo que te gustaría compartir con nuestra comunidad, te invitamos a enviárnoslo.
+Estamos siempre buscando nuevas voces y perspectivas. Si tienes un ensayo o una ilustración que te gustaría compartir con nuestra comunidad, te invitamos a enviárnoslo.
 
 ### Formatos de Archivo Aceptados
 - **Microsoft Word**: .docx, .doc
 - **OpenDocument**: .odt
-- **Rich Text**: .rtf  
+- **Rich Text**: .rtf
 - **Texto plano**: .txt
+- **Imágenes**: .png, .jpg, .tiff, .pdf
 - **Tamaño máximo**: 10MB
 
 ### Requisitos de Envío
 
-- **Cuentos**: Máximo 3,000 palabras
-- **Poesía**: Hasta 5 poemas por envío
 - **Ensayos**: Máximo 2,500 palabras
-- **Formato**: Texto en español únicamente
+- **Ilustraciones**: Formato PNG, JPG, TIFF o PDF, mínimo 300 DPI
+- **Formato de textos**: En español únicamente
 - **Originalidad**: Solo trabajos inéditos
 
 ### Proceso
